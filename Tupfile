@@ -1,3 +1,0 @@
-include_rules
-
-: src/*.o |> gcc %f $(LD_FLAGS) -o %o |> server

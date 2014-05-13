@@ -1,3 +1,5 @@
 include_rules
 
-: *.vala |> !vala |> server
+LIBNAME = rui-discoverer
+
+: *.vala |> !vala --vapi=$(LIBNAME).vapi --library $(LIBNAME) -H $(LIBNAME).h -X -fPIC -X -shared -o lib$(LIBNAME).so |> $(LIBNAME).h $(LIBNAME).vapi lib$(LIBNAME).so
