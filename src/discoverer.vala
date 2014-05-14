@@ -41,6 +41,8 @@ public class RUI.Discoverer {
         }
     }
 
+    public signal void services_changed();
+
     public Discoverer(bool debug) {
         this.debug = debug;
         _services = new Gee.HashMap<string, Service?>();
@@ -60,6 +62,7 @@ public class RUI.Discoverer {
                 return;
             }
             _services.set(service.udn, {service.udn, base_url, ui_listing});
+            services_changed();
         } catch (Error e) {
             stderr.printf("Error from GetCompatibleUIs from %s: %s\n",
                 base_url, e.message);
@@ -82,6 +85,7 @@ public class RUI.Discoverer {
             stdout.printf("Service unavailable %s\n", service.udn);
         }
         _services.unset(service.udn);
+        services_changed();
     }
 
     public void start() throws Error{
