@@ -1,0 +1,12 @@
+prefix=${prefix}
+exec_prefix=$${prefix}
+includedir=$${prefix}${include}
+libdir=$${exec_prefix}${lib}
+
+Name: ${name}-${major_version}
+Description: A library for discovering UPnP RemoteUIs
+URL: https://github.com/cablelabs/librui-discoverer
+Version: ${version}
+Requires: gupnp-1.0 gee-0.8
+Cflags: -I$${includedir}
+Libs: -L$${libdir} -l${name}
