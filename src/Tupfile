@@ -2,5 +2,5 @@ include_rules
 
 LIBNAME = rui-discoverer
 
-: *.vala |> !vala --vapi=$(LIBNAME).vapi --library $(LIBNAME) -H $(LIBNAME).h -X -fPIC -X -c -o lib$(LIBNAME).o |> $(LIBNAME).h $(LIBNAME).vapi lib$(LIBNAME).o
+: *.vala |> !vala --vapi=$(LIBNAME)-1.0.vapi --library $(LIBNAME) -H $(LIBNAME).h -X -fPIC -X -c -o lib$(LIBNAME).o |> $(LIBNAME).h $(LIBNAME)-1.0.vapi lib$(LIBNAME).o
 : *.o |> gcc -fPIC -o lib$(LIBNAME).so lib$(LIBNAME).o -shared -fPIC |> lib$(LIBNAME).so
