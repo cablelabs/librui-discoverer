@@ -219,7 +219,7 @@ namespace GUPnP {
 	public class ServiceProxy : GUPnP.ServiceInfo {
 		[CCode (has_construct_function = false)]
 		protected ServiceProxy ();
-		public bool add_notify (string variable, GLib.Type type, [CCode (scope = "async")] owned GUPnP.ServiceProxyNotifyCallback callback);
+		public bool add_notify (string variable, GLib.Type type, GUPnP.ServiceProxyNotifyCallback callback);
 		public unowned GUPnP.ServiceProxyAction begin_action (string action, [CCode (delegate_target_pos = 2.5, scope = "async")] owned GUPnP.ServiceProxyActionCallback callback, ...);
 		[Deprecated (since = "0.20.9")]
 		public unowned GUPnP.ServiceProxyAction begin_action_hash (string action, [CCode (delegate_target_pos = 2.5, scope = "async")] owned GUPnP.ServiceProxyActionCallback callback, GLib.HashTable<string,GLib.Value?> hash);

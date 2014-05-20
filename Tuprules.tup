@@ -1,6 +1,6 @@
 export PKG_CONFIG_PATH
 
-VALA_FLAGS += --vapidir=$(TUP_CWD)/vapi --pkg=gupnp-1.0 --pkg=gee-0.8 -X -w -g
+VALA_FLAGS = --vapidir=$(TUP_CWD)/vapi --pkg=gupnp-1.0 --pkg=gee-0.8 -X -w -g
 
 .gitignore
 
