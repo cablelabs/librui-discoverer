@@ -73,6 +73,9 @@ public class RUI.Discoverer : Object {
     void handle_ui_listing_update(GUPnP.ServiceProxy service) {
         /* we don't actually care what the UI list is, since we have to parse
          * the whole XML document again anyway.. */
+        if (debug) {
+            stdout.printf("UIListingUpdate %s\n", service.udn);
+        }
         service.begin_action("GetCompatibleUIs", handle_compatible_uis,
             /* in */
             "InputDeviceProfile", typeof(string), "",
@@ -82,6 +85,9 @@ public class RUI.Discoverer : Object {
 
     void service_proxy_available(GUPnP.ControlPoint control_point,
             GUPnP.ServiceProxy service) {
+        if (debug) {
+            stdout.printf("Service available %s\n", service.udn);
+        }
         service.set_subscribed(true);
         service.subscription_lost.connect(subscription_lost);
         service.add_notify("UIListingUpdate", typeof(string),
