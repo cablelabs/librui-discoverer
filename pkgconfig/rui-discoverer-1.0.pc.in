@@ -7,6 +7,6 @@ Name: ${name}-${major_version}
 Description: A library for discovering UPnP RemoteUIs
 URL: https://github.com/cablelabs/librui-discoverer
 Version: ${version}
-Requires: gupnp-1.0 gee-0.8
+Requires: gupnp-1.0 gee-0.8 gssdp-1.0
 Cflags: -I$${includedir}
 Libs: $${libdir}/lib${name}.o
